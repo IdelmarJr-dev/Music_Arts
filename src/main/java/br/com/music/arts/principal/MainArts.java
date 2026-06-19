@@ -11,8 +11,6 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class MainArts {
-    private Musica music = new Musica();
-    private Artista artista = new Artista();
     private Scanner scanner = new Scanner(System.in);
     private final RepositoryMusic repository;
 
@@ -72,6 +70,7 @@ public class MainArts {
         System.out.println("Digite o nome do artista: ");
         var nome =  scanner.nextLine();
         if (nome.length() <= 20) {
+            Artista artista = new Artista();
             artista.setNome(nome);
             System.out.println("Digite a composição do artista: solo, dupla ou banda");
             var tipArtists = scanner.nextLine();
@@ -91,6 +90,7 @@ public class MainArts {
         if (nome.length() <= 20) {
             Optional<Artista> artista = repository.findByNomeContainingIgnoreCase(nome);
             if (artista.isPresent()) {
+                Musica music = new Musica();
                 System.out.println("Informe o título da música: ");
                 var nomeMusica = scanner.nextLine();
                 music.setNome(nomeMusica);
