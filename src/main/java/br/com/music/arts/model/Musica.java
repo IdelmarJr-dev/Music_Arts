@@ -14,7 +14,6 @@ public class Musica {
     @Size(max = 20, message = "O nome não pode exceder 20 caracteres")
     @Column(unique = true, length =  20, nullable = false)
     private String nome;
-    private String dadosMusic;
     @ManyToOne
     private Artista artista;
 
@@ -42,14 +41,6 @@ public class Musica {
         this.nome = nome;
     }
 
-    public String getDadosMusic() {
-        return dadosMusic;
-    }
-
-    public void setDadosMusic(String dadosMusic) {
-        this.dadosMusic = dadosMusic;
-    }
-
     public Artista getArtista() {
         return artista;
     }
@@ -60,6 +51,6 @@ public class Musica {
 
     @Override
     public String toString() {
-        return "Titulo: " + getNome() + "Dados da Musica: ";
+        return "Titulo: " + getNome();
     }
 }
